@@ -47,3 +47,7 @@ predictions = knn.predict(X_test)
 accuracy = metrics.accuracy_score(y_test, predictions)
 print("Predictions:", predictions)
 print("Accuracy:", accuracy)
+
+index_of_instance = 1727
+print("Actual value: ", y[index_of_instance])
+print("Predicted value: ", knn.predict(X)[index_of_instance])
