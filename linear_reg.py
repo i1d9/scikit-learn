@@ -27,6 +27,10 @@ model = l_reg.fit(X_train, y_train)
 predictions = model.predict(X_test)
 
 print("Predictions: ", predictions)
+"""
+R-squared is a goodness-of-fit measure for linear regression models. 
+This statistic indicates the percentage of the variance in the dependent variable that the independent variables explain collectively
+"""
 print("R^2 value: ", l_reg.score(X, y))
 print("coedd: ", l_reg.coef_)
 print("intercept: ", l_reg.intercept_)
