@@ -14,14 +14,13 @@ X = data[['buying', 'maint', 'safety']].values
 
 #Select the label
 y = data[['class']]
-print(X, y)
 
 #Converting the features that have string data to numeric data
 Le = LabelEncoder()
 for i in range(len(X[0])):
     X[:, i] = Le.fit_transform(X[:, i])
 
-print(X)
+
 
 
 #Converting the label to numeric data
@@ -34,4 +33,17 @@ label_mapping = {
 
 y['class'] = y['class'].map(label_mapping)
 y = np.array(y)
-print(y)
+
+
+#Create model
+knn = neighbors.KNeighborsClassifier(n_neighbors=25, weights="uniform")
+
+#Train the model
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+knn.fit(X_train, y_train)
+
+predictions = knn.predict(X_test)
+
+accuracy = metrics.accuracy_score(y_test, predictions)
+print("Predictions:", predictions)
+print("Accuracy:", accuracy)
