@@ -8,4 +8,10 @@ from sklearn.preprocessing import LabelEncoder
 data = pd.read_csv("car.data")
 print(data.head())
 
-X = data
+#Select some features
+X = data[['buying', 'maint', 'safety']]
+
+#Select the label
+y = data[['class']]
+
+print(X, y)
