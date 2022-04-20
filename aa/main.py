@@ -16,7 +16,6 @@ frequent_itemsets_plus['length'] = frequent_itemsets_plus['itemsets'].apply(lamb
 print(frequent_itemsets_plus)
 #Frequently bought items are 24
 
-
 associations = association_rules(frequent_itemsets_plus, metric='lift', min_threshold=1).sort_values('lift', ascending=False).reset_index(drop=True)
 print(associations)
 
